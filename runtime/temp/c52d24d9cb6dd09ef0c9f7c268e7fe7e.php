@@ -1,0 +1,71 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:80:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/index\view\vip\index.html";i:1522400134;}*/ ?>
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Qsir的博客__本功能依托百域阁接口</title>
+<link rel="stylesheet" type="text/css" href="/guan/public/static/index/vip/css/default.css">
+<link rel="stylesheet" type="text/css" href="/guan/public/static/index/vip/css/search-form.css">
+<script type="text/javascript" src="/guan/public/static/index/vip/js/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+	<form onsubmit="submitFn(this, event);" >
+		<div class="search-wrapper">
+			<div class="input-holder">
+				<input type="text" name="url" class="search-input" placeholder="立刻观看" />
+				<button id="sub" class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+			</div>
+			<span class="close" onclick="searchToggle(this, event);"></span>
+			<div class="result-container">
+			</div>
+		</div>
+	</form>
+<script type="text/javascript">
+	function searchToggle(obj, evt){
+		var container = $(obj).closest('.search-wrapper');
+		if(!container.hasClass('active')){
+			  container.addClass('active');
+			  evt.preventDefault();
+		}
+		else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+			  container.removeClass('active');
+			  // clear input
+			  container.find('.search-input').val('');
+			  // clear and hide result container when we press close
+			  container.find('.result-container').fadeOut(100, function(){$(this).empty();});
+		}
+	}
+	function submitFn(obj, evt){
+		value = $(obj).find('.search-input').val().trim();
+		_html = " ";
+		str = value.match("((http[s]{0,1}|ftp)://[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)|((www.)|[a-zA-Z0-9\\.\\-]+\\.([a-zA-Z]{2,4})(:\\d+)?(/[a-zA-Z0-9\\.\\-~!@#$%^&*+?:_/=<>]*)?)");
+        if(!value.length){
+			_html = "请输入url地址";
+		}
+		else{
+			if(str == null){
+				_html = "请输入正确url地址";
+			}else{
+				$.ajax({
+				   type: "POST",
+				   url: "",
+				   data: "url="+value,
+				   success: function(msg){
+					 window.location.href=msg 
+				   }
+				});
+			}
+		}
+		$(obj).find('.result-container').html('<span>' + _html + '</span>');
+		$(obj).find('.result-container').fadeIn(100);
+		evt.preventDefault();
+	}
+	
+</script>
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>请输入播放页面的url地址</p>
+</div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:82:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/admin\view\index\index.html";i:1522400134;s:72:"E:\phpStudy\PHPTutorial\WWW\guan\application\admin\view\public\comm.html";i:1522400134;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:84:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/admin\view\article\index.html";i:1522400134;s:72:"E:\phpStudy\PHPTutorial\WWW\guan\application\admin\view\public\comm.html";i:1522400134;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -7,8 +7,12 @@
     <link rel="stylesheet" type="text/css" href="/guan/public/static/admin/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="/guan/public/static/admin/css/main.css"/>
     <script type="text/javascript" src="/guan/public/static/admin/js/libs/modernizr.min.js"></script>
-    <script type="text/javascript" src="/guan/public/static/admin/js/echarts.js"></script>
-    
+    <style>
+    .pagination {}
+    .pagination li {display: inline-block;margin-right: -1px;padding: 5px;border: 1px solid #e2e2e2;min-width: 20px;text-align: center;}
+    .pagination li.active {background: #009688;color: #fff;border: 1px solid #009688;}
+    .pagination li a {display: block;text-align: center;}
+    </style>
 </head>
 <body>
 <div class="topbar-wrap white">
@@ -62,55 +66,47 @@
     <!--/sidebar-->
     <div class="main-wrap">
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>新的留言<span></span></span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="<?php echo url('Index/index'); ?>">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">文章管理</span></div>
         </div>
         <div class="result-wrap">
-            <div class="result-title">
-                <h1>快捷操作</h1>
-            </div>
-            <div class="result-content">
-                <div class="short-wrap">
-                    <a href="<?php echo url('Cate/add'); ?>"><i class="icon-font">&#xe001;</i>新增栏目</a>
-                    <a href="#"><i class="icon-font">&#xe005;</i>新增博文</a>
-                    <a href="#"><i class="icon-font">&#xe048;</i>前台导航</a>
-                    <a href="#"><i class="icon-font">&#xe041;</i>新增博客分类</a>
-                    <a href="#"><i class="icon-font">&#xe01e;</i>作品评论</a>
+            <form name="myform" id="myform" method="post">
+                <div class="result-title">
+                    <div class="result-list">
+                        <a href="<?php echo url('Article/add'); ?>"><i class="icon-font"></i>新增文章</a>
+                        
+                    </div>
                 </div>
-            </div>
+                <div class="result-content">
+                <table class="result-tab" width="100%">
+                        <tr>
+                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox" />
+							</th>
+                            <th>id</th>
+                            <th>点击量</th>
+                            <th>文章标题</th>>
+							<th>所属类别</th>
+							<th>最后操作时间</th>
+                            <th>操作</th>
+                        </tr>
+                        <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                        <tr>
+                            <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
+                            <td><?php echo $vo['id']; ?></td>
+                            <td><?php echo $vo['num']; ?></td>
+                            <td title="<?php echo $vo['title']; ?>"><a target="_blank" class="link-update" href="<?php echo url('Article/look',array('id'=>$vo['id'])); ?>"><?php echo $vo['title']; ?></a></td>
+							<td><?php echo $vo['catename']; ?></td>
+							<td><?php echo $vo['update_time']; ?></td>
+                            <td>
+                                <a class="link-update" href="<?php echo url('Article/edit',array('id'=>$vo['id'])); ?>">修改</a>
+                                <a onclick="return confirm('是否删除这条数据？')" class="link-del" href="<?php echo url('Article/delete',array('id'=>$vo['id'])); ?>">删除</a>
+                            </td>
+                        </tr>
+                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                </table>
+                    <div  class="list-page">共<?php echo $list->total(); ?>条 <?php echo $list->currentPage(); ?>/<?php echo $list->lastPage(); ?> 页<?php echo $list->render(); ?></div>
+                </div>
+            </form>
         </div>
-        <div class="result-wrap">
-            <div class="result-title">
-                <h1>近7日访问量</h1>
-            </div>
-            <div class="result-content">
-                <div id="main" style="width:100%; height: 400px;"></div>
-                <script type="text/javascript">
-        // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('main'));
-
-        // 指定图表的配置项和数据
-        var option = {
-            tooltip: {},
-            legend: {
-                data:['访问量']
-            },
-            xAxis: {
-                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
-            },
-            yAxis: {},
-            series: [{
-                name: '访问量',
-                type: 'bar',
-                data: [5, 20, 36, 10, 10, 20]
-            }]
-        };
-
-        // 使用刚指定的配置项和数据显示图表。
-        myChart.setOption(option);
-    </script>
-            </div>
-        </div>
-        
     </div>
     <!--/main-->
 </div>
