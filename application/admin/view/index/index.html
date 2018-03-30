@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="__ROOT__/public/static/admin/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__ROOT__/public/static/admin/css/main.css"/>
+    <script type="text/javascript" src="__ROOT__/public/static/admin/js/libs/modernizr.min.js"></script>
+    <script type="text/javascript" src="__ROOT__/public/static/admin/js/echarts.js"></script>
+    
+</head>
+<body>
+{include file="public/comm" /}
+    <div class="main-wrap">
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font">&#xe06b;</i><span>新的留言<span></span></span></div>
+        </div>
+        <div class="result-wrap">
+            <div class="result-title">
+                <h1>快捷操作</h1>
+            </div>
+            <div class="result-content">
+                <div class="short-wrap">
+                    <a href="{:url('Cate/add')}"><i class="icon-font">&#xe001;</i>新增栏目</a>
+                    <a href="#"><i class="icon-font">&#xe005;</i>新增博文</a>
+                    <a href="#"><i class="icon-font">&#xe048;</i>前台导航</a>
+                    <a href="#"><i class="icon-font">&#xe041;</i>新增博客分类</a>
+                    <a href="#"><i class="icon-font">&#xe01e;</i>作品评论</a>
+                </div>
+            </div>
+        </div>
+        <div class="result-wrap">
+            <div class="result-title">
+                <h1>近7日访问量</h1>
+            </div>
+            <div class="result-content">
+                <div id="main" style="width:100%; height: 400px;"></div>
+                <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            tooltip: {},
+            legend: {
+                data:['访问量']
+            },
+            xAxis: {
+                data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+            },
+            yAxis: {},
+            series: [{
+                name: '访问量',
+                type: 'bar',
+                data: [5, 20, 36, 10, 10, 20]
+            }]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+            </div>
+        </div>
+        
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="__ROOT__/public/static/admin/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="__ROOT__/public/static/admin/css/main.css"/>
+    <script type="text/javascript" src="__ROOT__/public/static/admin/js/libs/modernizr.min.js"></script>
+	<script type="text/javascript" src="__ROOT__/public/static/admin/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+{include file="public/comm"}
+    <div class="main-wrap">
+
+        <div class="crumb-wrap">
+            <div class="crumb-list"><i class="icon-font"></i><a href="{:url('Index/index')}">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="{:url('Cate/index')}">栏目管理</a><span class="crumb-step">&gt;</span><span>新增栏目</span></div>
+        </div>
+        <div class="result-wrap">
+            <div class="result-content">
+                <form action="" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                    <table class="insert-tab" width="100%">
+                        <tbody><tr>
+                            <th width="120"><i class="require-red">*</i>栏目类型：</th>
+                            <td>
+                                <input name="type" size="50" value="1" checked type="radio"> 导航栏目
+                                <input name="type" size="50" value="0"  type="radio"> 文章类别
+                            </td>
+                        </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>栏目名称：</th>
+                                <td>
+                                    <input class="common-text required" id="title" name="catename" size="50" value="" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>关键字：</th>
+                                <td><input class="common-text" name="keywords" size="50" value="" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th>链接地址：</th>
+                                <td><input class="common-text" name="url" size="50" value="" type="text"></td>
+                            </tr>
+                            <tr>
+                                <th><i class="require-red">*</i>描述：</th>
+                                <td><textarea name="des"  id="ueditor" cols="30" style="width: 98%;resize:none;" rows="10"></textarea></td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td>
+                                    <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
+                                    <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
+                                </td>
+                            </tr>
+                        </tbody></table>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <!--/main-->
+</div>
+</body>
+</html>

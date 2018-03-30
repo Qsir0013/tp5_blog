@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Language" content="zh-CN" />
+        <meta name="keywords" content="{$nav.0.keywords}" />
+        <meta name="description" content="{$nav.0.des}"/>
+        <title>
+            Qsir的博客__{$nav.0.catename}
+        </title>
+        <link rel="stylesheet" rev="stylesheet" href="__ROOT__/public/static/index/style/style.css" type="text/css"
+        media="screen" />
+        <link rel="shortcut icon" href="__ROOT__/public/static/index/favicon.ico" />
+        <script src="__ROOT__/public/static/index/style/common.js" type="text/javascript">
+        </script>
+        <script src="__ROOT__/public/static/index/style/c_html_js_add.js" type="text/javascript">
+        </script>
+        <script src="__ROOT__/public/static/index/style/custom.js" type="text/javascript">
+        </script>
+        <link rel="alternate" type="application/rss+xml" href="style/feed.css"/>
+        <style>
+            .pagination li{
+                float:left;
+                margin-right:10px;
+            }
+        </style>
+    </head>
+    
+    <body class="multi default">
+        <div id="divAll">
+            <div id="divPage">
+                <div id="divMiddle">
+                    {include file="public/nav" /}
+                    <div id="divMain">
+                    {volist name="article" id="vo"}
+                        <div class="post multi-post cate4 auth1">
+                            <h4 class="post-date">
+                                {$vo.create_time}
+                            </h4>
+                            <h2 class="post-title">
+                                <a href="{:url('Index/read',array('id'=>$vo.id))}">
+                                    {$vo.title}
+                                </a>
+                            </h2>
+                            <div class="post-body">
+                                <p>
+                                    {$vo.des|msubstr=0,200}
+                                </p>
+                            </div>
+                            <h5 class="post-tags">
+                                Tags:
+                                <span class="tags">
+                                    <?php 
+                                        $targs = explode(',',$vo['keywords']);
+                                        foreach($targs as $k=>$v){
+                                            echo "<a href='__ROOT__/index.php/index/index/search/targs/$v'>$v</a>&nbsp;&nbsp;";
+                                        } 
+                                    ?> 
+                                </span>
+                            </h5>
+                            <h6 class="post-footer">
+                                发布:{$vo.author} | 分类:{$vo.catename} | 评论:{$vo.comment} | 浏览:{$vo.num}
+                                <a href="{:url('Index/read',array('id'=>$vo.id))}">
+                                    阅读全文 >
+                                </a>
+                            </h6>
+                        </div>
+                    {/volist}
+                        <div class="post pagebar">
+                            {$article->render()}
+                            共{$article->total()}条 {$article->currentPage()}/{$article->lastPage()} 页
+                        </div>
+                    </div>
+                    {include file="public/right" /}
+                    {include file="public/fot" /}

@@ -1,0 +1,120 @@
+<div id="divSidebar">
+    <dl class="function" id="divSearchPanel">
+        <dt class="function_t">
+            关键字搜索
+        </dt>
+        <dd class="function_c">
+            <div>
+                <div style="padding:0.5em 0 0.5em 1em;">
+                    <form method="post" action="__ROOT__/index.php/index/Base/search">
+                        <input type="text" name="edtSearch" id="edtSearch" size="12" />
+                        <input type="submit" value="提交" name="btnPost" id="btnPost" />
+                    </form>
+                </div>
+            </div>
+        </dd>
+    </dl>
+	{if condition="$Think.session.controller eq 'Msg'"}
+	
+	{else /}
+    <dl class="function" id="divTags">
+        <dt class="function_t">
+            按类别浏览
+        </dt>
+        <dd class="function_c">
+            <ul>
+                {volist name="cate" id="vo"}
+                <li class="tag-name tag-name-size-0">
+                    <a href="__ROOT__/index.php/index/{$Think.session.controller}/cate/catename/{$vo.id}">
+                        {$vo.catename}
+                    </a>
+                </li>
+                {/volist}
+            </ul>
+        </dd>
+    </dl>
+	{/if}
+    <dl class="function" id="divComments">
+        <dt class="function_t">
+            最新留言
+        </dt>
+        <dd class="function_c">
+            <ul>
+            {volist name="msg" id="vo"}
+                <li style="text-overflow:ellipsis;">
+                    <a href="{:url('Msg/index')}" title="{$vo.name}留言于——{$vo.create_time}">
+                        {$vo.content}
+                    </a>
+                </li>
+            {/volist}  
+            </ul>
+        </dd>
+    </dl>
+    <dl class="function" id="divLinkage">
+        <dt class="function_t">
+            友情链接
+        </dt>
+        <dd >
+            <ul>
+                <li>
+                    {volist name="link" id="vo"}
+                    <a href="{$vo.url}" target="_blank">
+                        {$vo.title}
+                    </a>&nbsp;&nbsp;
+                    {/volist}
+                </li>
+                <li>
+                    <a href="{:url('Msg/index')}" target="_blank" title="申请链接">
+                        <span style="color:#006000;">
+                            交换友情链接
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+    <dl class="function" id="divMisc">
+        <dt class="function_t">
+            分享到：
+        </dt>
+        <dd class="function_c">
+            <ul>
+                <li>
+                    <img src="images/weixin.jpg" height="110" width="110" border="0" alt="Qsir的个人公众号"
+                    title="微信扫一扫。" />
+                </li>
+                <li>
+                    <!-- Baidu Button BEGIN -->
+                    <div class="bdsharebuttonbox">
+                        <a href="#" class="bds_more" data-cmd="more">
+                        </a>
+                        <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin">
+                        </a>
+                        <a title="分享到QQ空间" href="#" class="bds_qzone" data-cmd="qzone">
+                        </a>
+                        <a title="分享到百度贴吧" href="#" class="bds_tieba" data-cmd="tieba">
+                        </a>
+                        <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina">
+                        </a>
+                    </div>
+                    <script>
+                        window._bd_share_config = {
+                            "common": {
+                                "bdSnsKey": {},
+                                "bdText": "",
+                                "bdMini": "2",
+                                "bdMiniList": ["sqq", "weixin", "qzone", "tsina", "tieba", "douban"],
+                                "bdPic": "",
+                                "bdStyle": "0",
+                                "bdSize": "16"
+                            },
+                            "share": {}
+                        };
+                        with(document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~ ( - new Date() / 36e5)];
+                    </script>
+                    <!-- Baidu Button END -->
+                </li>
+            </ul>
+        </dd>
+    </dl>
+</div>
