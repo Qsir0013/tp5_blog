@@ -7,7 +7,7 @@
                             {volist name="nav" id="vo"}
                             <li>
                             
-                                <a title="{$vo.catename}" {if condition="$vo.id eq 2"} target="_blank" {else/} {/if} href="__ROOT__/index.php/index/{$vo.url}">
+                                <a title="{$vo.catename}" {if condition="$vo.id eq 2"} target="_blank" {else/} {/if} href="__ROOT__/{$vo.url}">
                                     {$vo.catename}
                                 </a>
                             </li>

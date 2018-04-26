@@ -1,37 +1,23 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/index\view\index\index.html";i:1524704749;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\nav.html";i:1524707625;s:73:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\right.html";i:1524708182;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\fot.html";i:1524649614;}*/ ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:85:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/index\view\public\content.html";i:1524706349;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\nav.html";i:1524707625;s:73:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\right.html";i:1524708182;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\fot.html";i:1524649614;}*/ ?>
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta http-equiv="Content-Language" content="zh-CN" />
-        <meta name="keywords" content="<?php echo $nav['0']['keywords']; ?>" />
-        <meta name="description" content="<?php echo $nav['0']['des']; ?>"/>
-        <title>
-            Qsir的博客__<?php echo $nav['0']['catename']; ?>
-        </title>
-        <link rel="stylesheet" rev="stylesheet" href="/static/index/style/style.css" type="text/css"
-        media="screen" />
-        <link rel="shortcut icon" href="/static/index/favicon.ico" />
-        <script src="/static/index/style/common.js" type="text/javascript">
-        </script>
-        <script src="/static/index/style/c_html_js_add.js" type="text/javascript">
-        </script>
-        <script src="/static/index/style/custom.js" type="text/javascript">
-        </script>
-        <link rel="alternate" type="application/rss+xml" href="style/feed.css"/>
-        <style>
-            .pagination li{
-                float:left;
-                margin-right:10px;
-            }
-        </style>
-    </head>
-    
-    <body class="multi default">
-        <div id="divAll">
-            <div id="divPage">
-                <div id="divMiddle">
-                    <div id="divTop">
+ <head> 
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+  <meta http-equiv="Content-Language" content="zh-CN" /> 
+  <meta name="keywords" content="<?php echo $article['keywords']; ?>" /> 
+  <meta name="description" content="<?php echo $article['des']; ?>" /> 
+  <title>Qsir的博客_<?php echo $article['title']; ?></title> 
+  <link rel="stylesheet" rev="stylesheet" href="/static/index/style/style.css" type="text/css" media="screen" /> 
+  <link rel="shortcut icon" href="/favicon.ico" /> 
+  <script src="/static/index/style/common.js" type="text/javascript"></script> 
+  <script src="/static/index/style/c_html_js_add.js" type="text/javascript"></script> 
+  <script src="/static/index/style/custom.js" type="text/javascript"></script> 
+ </head> 
+ <body class="single"> 
+  <div id="divAll"> 
+   <div id="divPage"> 
+    <div id="divMiddle">
+      <div id="divTop">
                         <h1 id="BlogTitle">
                         </h1>
                     </div>
@@ -46,48 +32,39 @@
                             </li>
                             <?php endforeach; endif; else: echo "" ;endif; ?>
                         </ul>
-                    </div>
-                    <div id="divMain">
-                    <?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): $i = 0; $__LIST__ = $article;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-                        <div class="post multi-post cate4 auth1">
-                            <h4 class="post-date">
-                                <?php echo $vo['create_time']; ?>
-                            </h4>
-                            <h2 class="post-title">
-                                <a href="/read/<?php echo $vo['id']; ?>">
-                                    <?php echo $vo['title']; ?>
-                                </a>
-                            </h2>
-                            <div class="post-body">
-                                <p>
-                                    <?php echo msubstr($vo['des'],0,200); ?>
-                                </p>
-                            </div>
-                            <h5 class="post-tags">
-                                Tags:
-                                <span class="tags">
-                                    <?php 
-                                        $targs = explode(',',$vo['keywords']);
-                                        foreach($targs as $k=>$v){
-                                            echo "<a href='/search/targs/$v'>$v</a>&nbsp;&nbsp;";
-                                        } 
-                                    ?> 
-                                </span>
-                            </h5>
-                            <h6 class="post-footer">
-                                发布:<?php echo $vo['author']; ?> | 分类:<?php echo $vo['catename']; ?> | 评论:<?php echo $vo['comment']; ?> | 浏览:<?php echo $vo['num']; ?>
-                                <a href="/read/<?php echo $vo['id']; ?>">
-                                    阅读全文 >
-                                </a>
-                            </h6>
-                        </div>
-                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                        <div class="post pagebar">
-                            <?php echo $article->render(); ?>
-                            共<?php echo $article->total(); ?>条 <?php echo $article->currentPage(); ?>/<?php echo $article->lastPage(); ?> 页
-                        </div>
-                    </div>
-                    <div id="divSidebar">
+                    </div> 
+     <div id="divMain"> 
+      <div class="post single-post cate2 auth1"> 
+       <div class="post-nav">
+        <a class="l" href="" title="​">&laquo; 上一篇</a>
+        <a class="r" href="" title="">下一篇 &raquo;</a>
+       </div> 
+       <h4 class="post-date">2016-3-11 13:23:45</h4> 
+       <h2 class="post-title"><?php echo $article['title']; ?></h2> 
+       <div class="post-body" style="box-shadow:5px 5px 5px 1px #888888;padding:10px">
+        <?php echo $content; ?>
+        <p><br /></p>
+       </div> 
+       <h5 class="post-tags">Tags:
+		<?php 
+			$targs = explode(',',$article['keywords']);
+			foreach($targs as $k=>$v){
+				echo "<a style='color:blue;' href='/search/targs/$v'>$v</a>&nbsp;&nbsp;";
+			} 
+		?> 
+	   </h5> 
+       <h6 class="post-footer"> 发布:<?php echo $article['author']; ?> | 分类:大生活 | 评论:<?php echo $article['comment']; ?> | 浏览:<span ><?php echo $article['num']; ?></span> <br /> 
+        <!-- AD BEGIN --> <br /> 
+        <div style="width:660px;" align="center"> 
+        </div> 
+        <!-- AD END --> </h6> 
+      </div> 
+      <ul class="msg mutuality"> 
+       <li class="tbname">相关文章:</li> 
+       <li class="msgarticle"><p><a href="http://www.youmew.com/post/80.html">平凡的日子里，我感到幸福，又感到绝望。</a>&nbsp;&nbsp;(2017-9-9 23:0:29)</p><p><a href="http://www.youmew.com/post/79.html">第301天后……</a>&nbsp;&nbsp;(2017-6-27 21:57:53)</p><p><a href="http://www.youmew.com/post/77.html">明心见性的一段对话</a>&nbsp;&nbsp;(2016-3-17 10:45:44)</p><p><a href="http://www.youmew.com/post/75.html">2016年就一个字：戒！​</a>&nbsp;&nbsp;(2016-1-26 13:52:59)</p><p><a href="http://www.youmew.com/post/74.html">初冬，景如故</a>&nbsp;&nbsp;(2015-11-21 17:2:53)</p><p><a href="http://www.youmew.com/post/72.html">五十度灰的天空</a>&nbsp;&nbsp;(2015-4-30 4:47:49)</p><p><a href="http://www.youmew.com/post/71.html">见路不走，清明</a>&nbsp;&nbsp;(2015-4-1 11:59:32)</p><p><a href="http://www.youmew.com/post/70.html">神雕侠侣不过只是男欢女爱罢了</a>&nbsp;&nbsp;(2015-2-20 9:2:14)</p><p><a href="http://www.youmew.com/post/69.html">山花烂漫的季节，我们各自冷暖自知</a>&nbsp;&nbsp;(2015-2-4 11:59:13)</p><p><a href="http://www.youmew.com/post/68.html">一场梦而已。</a>&nbsp;&nbsp;(2015-1-20 5:11:26)</p></li> 
+      </ul> 
+     </div> 
+	 <div id="divSidebar">
     <dl class="function" id="divSearchPanel">
         <dt class="function_t">
             关键字搜索
@@ -204,8 +181,8 @@
             </ul>
         </dd>
     </dl>
-</div>
-                    <div id="divBottom"> 
+</div> 
+	 <div id="divBottom"> 
       <h3 id="BlogCopyRight"><script src="http://s20.cnzz.com/stat.php?id=681872&amp;web_id=681872&amp;show=pic" language="JavaScript"></script>　陕ICP备11002139号-1</h3> 
       <h4 id="BlogPowerBy">Powered By <a href="http://www.rainbowsoft.org/" title="RainbowSoft Studio Z-Blog" target="_blank">Z-Blog</a>　本站遵循<a rel="license" target="_blank" title="署名-非商业性使用-禁止演绎 3.0 中国大陆许可协议" href="http://creativecommons.org/licenses/by-nc-nd/3.0/cn/"> CC BY-NC-ND 3.0 CN协议 </a>。</h4> 
      </div>
@@ -216,5 +193,10 @@
    <div class="clear"></div> 
   </div>   
   <!-- 2016-6-23 1:59:46 -->
+ </body>
+</html>
+    </div>
+   </div>
+  </div>
  </body>
 </html>

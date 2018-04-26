@@ -1,13 +1,14 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/index\view\index\index.html";i:1524704749;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\nav.html";i:1524707625;s:73:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\right.html";i:1524708182;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\fot.html";i:1524649614;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:81:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/index\view\note\index.html";i:1524704967;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\nav.html";i:1524707625;s:73:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\right.html";i:1524708182;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\fot.html";i:1524649614;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="Content-Language" content="zh-CN" />
-        <meta name="keywords" content="<?php echo $nav['0']['keywords']; ?>" />
-        <meta name="description" content="<?php echo $nav['0']['des']; ?>"/>
+        <meta name="keywords" content="<?php echo $nav['4']['keywords']; ?>" />
+        <meta name="description" content="<?php echo $nav['4']['des']; ?>"
+        />
         <title>
-            Qsir的博客__<?php echo $nav['0']['catename']; ?>
+            Qsir的博客__<?php echo $nav['4']['catename']; ?>
         </title>
         <link rel="stylesheet" rev="stylesheet" href="/static/index/style/style.css" type="text/css"
         media="screen" />
@@ -18,7 +19,8 @@
         </script>
         <script src="/static/index/style/custom.js" type="text/javascript">
         </script>
-        <link rel="alternate" type="application/rss+xml" href="style/feed.css"/>
+        <link rel="alternate" type="application/rss+xml" href="style/feed.css"
+        title="你我网 " />
         <style>
             .pagination li{
                 float:left;

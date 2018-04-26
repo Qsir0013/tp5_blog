@@ -1,3 +1,4 @@
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:80:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/index\view\vip\index.html";i:1524649726;}*/ ?>
 <!doctype html>
 <html lang="zh">
 <head>
@@ -5,9 +6,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Qsir的博客__本功能依托百域阁接口</title>
-<link rel="stylesheet" type="text/css" href="__ROOT__/static/index/vip/css/default.css">
-<link rel="stylesheet" type="text/css" href="__ROOT__/static/index/vip/css/search-form.css">
-<script type="text/javascript" src="__ROOT__/static/index/vip/js/jquery-1.11.0.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/index/vip/css/default.css">
+<link rel="stylesheet" type="text/css" href="/static/index/vip/css/search-form.css">
+<script type="text/javascript" src="/static/index/vip/js/jquery-1.11.0.min.js"></script>
 </head>
 <body>
 	<form onsubmit="submitFn(this, event);" >

@@ -1,12 +1,12 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:81:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/admin\view\cate\index.html";i:1522400134;s:72:"E:\phpStudy\PHPTutorial\WWW\guan\application\admin\view\public\comm.html";i:1522400134;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:81:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/admin\view\cate\index.html";i:1524707483;s:72:"E:\phpStudy\PHPTutorial\WWW\guan\application\admin\view\public\comm.html";i:1524706452;}*/ ?>
 <!doctype html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>后台管理</title>
-    <link rel="stylesheet" type="text/css" href="/guan/public/static/admin/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="/guan/public/static/admin/css/main.css"/>
-    <script type="text/javascript" src="/guan/public/static/admin/js/libs/modernizr.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/main.css"/>
+    <script type="text/javascript" src="/static/admin/js/libs/modernizr.min.js"></script>
     
     <style>
     .pagination {}
@@ -22,7 +22,7 @@
             <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
             <ul class="navbar-list clearfix">
                 <li><a class="on" href="<?php echo url('Index/index'); ?>">首页</a></li>
-                <li><a href="http://<?php echo \think\Request::instance()->server('HTTP_HOST'); ?>/guan/index.php" target="_blank">网站首页</a></li>
+                <li><a href="http://<?php echo \think\Request::instance()->server('HTTP_HOST'); ?>" target="_blank">网站首页</a></li>
             </ul>
         </div>
         <div class="top-info-wrap">
@@ -96,7 +96,7 @@
                             <?php if(($vo['type'] == 1) OR ($vo['type'] == 2)): ?>导航栏目<?php else: if($vo['type'] == 0): ?>文章类别<?php endif; endif; ?></td>
                             <td>
                                 <a class="link-update" href="<?php echo url('Cate/edit',array('id'=>$vo['id'])); ?>">修改</a>
-                                <?php if($vo['type'] == 2): else: ?>
+                                <?php if($vo['type'] == 1): else: ?>
                                 <a onclick="return confirm('是否删除这条数据？')" class="link-del" href="<?php echo url('Cate/delete',array('id'=>$vo['id'])); ?>">删除</a>
                                 <?php endif; ?>
                             </td>

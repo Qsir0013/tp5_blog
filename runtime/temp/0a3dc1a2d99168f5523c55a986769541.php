@@ -1,11 +1,12 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:82:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/index\view\index\index.html";i:1524704749;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\nav.html";i:1524707625;s:73:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\right.html";i:1524708182;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\fot.html";i:1524649614;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:83:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/index\view\public\index.html";i:1524704806;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\nav.html";i:1524707625;s:73:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\right.html";i:1524708182;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\fot.html";i:1524649614;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="Content-Language" content="zh-CN" />
         <meta name="keywords" content="<?php echo $nav['0']['keywords']; ?>" />
-        <meta name="description" content="<?php echo $nav['0']['des']; ?>"/>
+        <meta name="description" content="<?php echo $nav['0']['des']; ?>"
+        />
         <title>
             Qsir的博客__<?php echo $nav['0']['catename']; ?>
         </title>
@@ -48,7 +49,7 @@
                         </ul>
                     </div>
                     <div id="divMain">
-                    <?php if(is_array($article) || $article instanceof \think\Collection || $article instanceof \think\Paginator): $i = 0; $__LIST__ = $article;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
+                    <?php if(is_array($cateArticle) || $cateArticle instanceof \think\Collection || $cateArticle instanceof \think\Paginator): $i = 0; $__LIST__ = $cateArticle;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                         <div class="post multi-post cate4 auth1">
                             <h4 class="post-date">
                                 <?php echo $vo['create_time']; ?>
@@ -83,8 +84,8 @@
                         </div>
                     <?php endforeach; endif; else: echo "" ;endif; ?>
                         <div class="post pagebar">
-                            <?php echo $article->render(); ?>
-                            共<?php echo $article->total(); ?>条 <?php echo $article->currentPage(); ?>/<?php echo $article->lastPage(); ?> 页
+                            <?php echo $cateArticle->render(); ?>
+                            共<?php echo $cateArticle->total(); ?>条 <?php echo $cateArticle->currentPage(); ?>/<?php echo $cateArticle->lastPage(); ?> 页
                         </div>
                     </div>
                     <div id="divSidebar">

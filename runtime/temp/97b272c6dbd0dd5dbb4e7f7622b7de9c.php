@@ -1,16 +1,16 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:80:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/admin\view\cate\edit.html";i:1522400134;s:72:"E:\phpStudy\PHPTutorial\WWW\guan\application\admin\view\public\comm.html";i:1522400134;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:80:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/admin\view\cate\edit.html";i:1524649725;s:72:"E:\phpStudy\PHPTutorial\WWW\guan\application\admin\view\public\comm.html";i:1524706452;}*/ ?>
 <!doctype html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>后台管理</title>
-    <link rel="stylesheet" type="text/css" href="/guan/public/static/admin/css/common.css"/>
-    <link rel="stylesheet" type="text/css" href="/guan/public/static/admin/css/main.css"/>
-    <script type="text/javascript" src="/guan/public/static/admin/js/libs/modernizr.min.js"></script>
-	<script type="text/javascript" src="/guan/public/static/admin/js/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/guan/public/static/admin/ueditor/ueditor.config.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/guan/public/static/admin/ueditor/ueditor.all.min.js"></script>
-    <script type="text/javascript" src="/guan/public/static/admin/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/common.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/main.css"/>
+    <script type="text/javascript" src="/static/admin/js/libs/modernizr.min.js"></script>
+	<script type="text/javascript" src="/static/admin/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/admin/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/static/admin/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" src="/static/admin/ueditor/lang/zh-cn/zh-cn.js"></script>
 </head>
 <body>
 <div class="topbar-wrap white">
@@ -19,7 +19,7 @@
             <h1 class="topbar-logo none"><a href="index.html" class="navbar-brand">后台管理</a></h1>
             <ul class="navbar-list clearfix">
                 <li><a class="on" href="<?php echo url('Index/index'); ?>">首页</a></li>
-                <li><a href="http://<?php echo \think\Request::instance()->server('HTTP_HOST'); ?>/guan/index.php" target="_blank">网站首页</a></li>
+                <li><a href="http://<?php echo \think\Request::instance()->server('HTTP_HOST'); ?>" target="_blank">网站首页</a></li>
             </ul>
         </div>
         <div class="top-info-wrap">

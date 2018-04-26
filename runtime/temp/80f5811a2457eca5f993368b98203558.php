@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/index\view\public\search.html";i:1522400273;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\nav.html";i:1522400134;s:73:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\right.html";i:1522400309;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\fot.html";i:1522400134;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:84:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/index\view\public\search.html";i:1524704975;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\nav.html";i:1524707625;s:73:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\right.html";i:1524708182;s:71:"E:\phpStudy\PHPTutorial\WWW\guan\application\index\view\public\fot.html";i:1524649614;}*/ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
     <head>
@@ -10,14 +10,14 @@
         <title>
             Qsir的博客__<?php echo $nav['0']['catename']; ?>
         </title>
-        <link rel="stylesheet" rev="stylesheet" href="/guan/public/static/index/style/style.css" type="text/css"
+        <link rel="stylesheet" rev="stylesheet" href="/static/index/style/style.css" type="text/css"
         media="screen" />
-        <link rel="shortcut icon" href="/guan/public/static/index/favicon.ico" />
-        <script src="/guan/public/static/index/style/common.js" type="text/javascript">
+        <link rel="shortcut icon" href="/static/index/favicon.ico" />
+        <script src="/static/index/style/common.js" type="text/javascript">
         </script>
-        <script src="/guan/public/static/index/style/c_html_js_add.js" type="text/javascript">
+        <script src="/static/index/style/c_html_js_add.js" type="text/javascript">
         </script>
-        <script src="/guan/public/static/index/style/custom.js" type="text/javascript">
+        <script src="/static/index/style/custom.js" type="text/javascript">
         </script>
         <link rel="alternate" type="application/rss+xml" href="style/feed.css"/>
         <style>
@@ -41,7 +41,7 @@
                             <?php if(is_array($nav) || $nav instanceof \think\Collection || $nav instanceof \think\Paginator): $i = 0; $__LIST__ = $nav;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                             <li>
                             
-                                <a title="<?php echo $vo['catename']; ?>" <?php if($vo['id'] == 2): ?> target="_blank" <?php else: endif; ?> href="/guan/index.php/index/<?php echo $vo['url']; ?>">
+                                <a title="<?php echo $vo['catename']; ?>" <?php if($vo['id'] == 2): ?> target="_blank" <?php else: endif; ?> href="/<?php echo $vo['url']; ?>">
                                     <?php echo $vo['catename']; ?>
                                 </a>
                             </li>
@@ -55,7 +55,7 @@
                                 <?php echo $vo['create_time']; ?>
                             </h4>
                             <h2 class="post-title">
-                                <a href="/guan/index.php/index/<?php echo \think\Session::get('controller'); ?>/read/id/<?php echo $vo['id']; ?>">
+                                <a href="/read/<?php echo $vo['id']; ?>">
                                     <?php echo $vo['title']; ?>
                                 </a>
                             </h2>
@@ -70,14 +70,14 @@
                                     <?php 
                                         $targs = explode(',',$vo['keywords']);
                                         foreach($targs as $k=>$v){
-                                            echo "<a href='/guan/index.php/index/index/search/targs/$v'>$v</a>&nbsp;&nbsp;";
+                                            echo "<a href='/search/targs/$v'>$v</a>&nbsp;&nbsp;";
                                         } 
                                     ?> 
                                 </span>
                             </h5>
                             <h6 class="post-footer">
                                 发布:<?php echo $vo['author']; ?> | 分类:<?php echo $vo['catename']; ?> | 评论:<?php echo $vo['comment']; ?> | 浏览:<?php echo $vo['num']; ?>
-                                <a href="/guan/index.php/index/<?php echo \think\Session::get('controller'); ?>/read/id/<?php echo $vo['id']; ?>">
+                                <a href="/read/<?php echo $vo['id']; ?>">
                                     阅读全文 >
                                 </a>
                             </h6>
@@ -96,7 +96,7 @@
         <dd class="function_c">
             <div>
                 <div style="padding:0.5em 0 0.5em 1em;">
-                    <form method="post" action="/guan/index.php/index/Base/search">
+                    <form method="post" action="/search">
                         <input type="text" name="edtSearch" id="edtSearch" size="12" />
                         <input type="submit" value="提交" name="btnPost" id="btnPost" />
                     </form>
@@ -113,7 +113,7 @@
             <ul>
                 <?php if(is_array($cate) || $cate instanceof \think\Collection || $cate instanceof \think\Paginator): $i = 0; $__LIST__ = $cate;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                 <li class="tag-name tag-name-size-0">
-                    <a href="/guan/index.php/index/<?php echo \think\Session::get('controller'); ?>/cate/catename/<?php echo $vo['id']; ?>">
+                    <a href="/cate/<?php echo $vo['id']; ?>">
                         <?php echo $vo['catename']; ?>
                     </a>
                 </li>

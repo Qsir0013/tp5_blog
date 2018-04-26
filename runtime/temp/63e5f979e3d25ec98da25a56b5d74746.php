@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:84:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/admin\view\article\index.html";i:1524649725;s:72:"E:\phpStudy\PHPTutorial\WWW\guan\application\admin\view\public\comm.html";i:1524706452;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:2:{s:81:"E:\phpStudy\PHPTutorial\WWW\guan\public/../application/admin\view\link\index.html";i:1524649725;s:72:"E:\phpStudy\PHPTutorial\WWW\guan\application\admin\view\public\comm.html";i:1524706452;}*/ ?>
 <!doctype html>
 <html>
 <head>
@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="/static/admin/css/common.css"/>
     <link rel="stylesheet" type="text/css" href="/static/admin/css/main.css"/>
     <script type="text/javascript" src="/static/admin/js/libs/modernizr.min.js"></script>
+    
     <style>
     .pagination {}
     .pagination li {display: inline-block;margin-right: -1px;padding: 5px;border: 1px solid #e2e2e2;min-width: 20px;text-align: center;}
@@ -65,44 +66,40 @@
     </div>
     <!--/sidebar-->
     <div class="main-wrap">
+
         <div class="crumb-wrap">
-            <div class="crumb-list"><i class="icon-font"></i><a href="<?php echo url('Index/index'); ?>">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">文章管理</span></div>
+            <div class="crumb-list"><i class="icon-font"></i><a href="<?php echo url('Index/index'); ?>">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">友情链接管理</span></div>
         </div>
         <div class="result-wrap">
             <form name="myform" id="myform" method="post">
                 <div class="result-title">
                     <div class="result-list">
-                        <a href="<?php echo url('Article/add'); ?>"><i class="icon-font"></i>新增文章</a>
-                        
+                        <a href="<?php echo url('Link/add'); ?>"><i class="icon-font"></i>新增友情链接</a>
+                        <!--<a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>-->
                     </div>
                 </div>
                 <div class="result-content">
-                <table class="result-tab" width="100%">
+                    <table class="result-tab" width="100%">
                         <tr>
-                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox" />
-							</th>
-                            <th>id</th>
-                            <th>点击量</th>
-                            <th>文章标题</th>>
-							<th>所属类别</th>
-							<th>最后操作时间</th>
+                            <th class="tc" width="5%"><input class="allChoose" name="" type="checkbox"></th>
+                            <th>ID</th>
+                            <th>链接名称</th>
+                            <th>链接地址</th>
                             <th>操作</th>
                         </tr>
                         <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): $i = 0; $__LIST__ = $list;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
                         <tr>
                             <td class="tc"><input name="id[]" value="59" type="checkbox"></td>
                             <td><?php echo $vo['id']; ?></td>
-                            <td><?php echo $vo['num']; ?></td>
-                            <td title="<?php echo $vo['title']; ?>"><a target="_blank" class="link-update" href="<?php echo url('Article/look',array('id'=>$vo['id'])); ?>"><?php echo $vo['title']; ?></a></td>
-							<td><?php echo $vo['catename']; ?></td>
-							<td><?php echo $vo['update_time']; ?></td>
+                            <td title="<?php echo $vo['title']; ?>"><?php echo $vo['title']; ?></td>
+                            <td><?php echo $vo['url']; ?></td>
                             <td>
-                                <a class="link-update" href="<?php echo url('Article/edit',array('id'=>$vo['id'])); ?>">修改</a>
-                                <a onclick="return confirm('是否删除这条数据？')" class="link-del" href="<?php echo url('Article/delete',array('id'=>$vo['id'])); ?>">删除</a>
+                                <a class="link-update" href="<?php echo url('Link/edit',array('id'=>$vo['id'])); ?>">修改</a>
+                                <a onclick="return confirm('是否删除这条数据？')" class="link-del" href="<?php echo url('Link/delete',array('id'=>$vo['id'])); ?>">删除</a>
                             </td>
                         </tr>
                         <?php endforeach; endif; else: echo "" ;endif; ?>
-                </table>
+                    </table>
                     <div  class="list-page">共<?php echo $list->total(); ?>条 <?php echo $list->currentPage(); ?>/<?php echo $list->lastPage(); ?> 页<?php echo $list->render(); ?></div>
                 </div>
             </form>

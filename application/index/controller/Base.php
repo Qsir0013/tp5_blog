@@ -15,7 +15,7 @@ class Base extends Controller
     	$link = $common -> list('link','','id desc','');
 		$this -> assign(['nav'=>$nav,'cate'=>$cate,'msg'=>$msg,'link'=>$link]);
 		$controller = request()->controller();
-		session('controller',$controller);
+		define('controller',$controller);
 	}
 
 	public function search()
@@ -62,59 +62,27 @@ class Base extends Controller
 		$id = input('id');
 		$find = $common -> findOne('article',array('id'=>$id));
 		$content = htmlspecialchars_decode($find['content']);
-		
-		
 		$this -> assign(['article'=>$find,'content'=>$content]);
 		return $this -> fetch('public/content');
 	}
 
 	public function cate(){
-		$cate = input('catename');
 		$common = new Common();
-		$controller = session('controller');
-		switch($controller)
-		{
-			case 'Index':
-				$type = 1;
-				break;
-			case 'My':
-				$type = 4;
-				break;
-			case 'Note':
-				$type = 5;
-				break;
-		}
-		if($type===1){
-			$where = [
-			'cate'=>$cate,
-			];
-			$join = [
-				['cate','article.cate=cate.id']
-			];
-			$article = $common -> joinList(
-				'article',
-				$join,
-				'title,article.des,num,comment,article.create_time,author,cate.catename,article.id,article.keywords',
-				$where,
-				'article.update_time desc');
-		}else{
-			$where = [
-				'cate'=>$cate,
-				'article.type'=>$type
-			];
-			$join = [
-				['cate','article.cate=cate.id']
-			];
-			$article = $common -> joinList(
-				'article',
-				$join,
-				'title,article.des,num,comment,article.create_time,author,cate.catename,article.id,article.keywords',
-				$where,
-				'article.update_time desc');
-		}
-		$this -> assign(['cateArticle'=>$article,'controller'=>$controller]);
+		$cate = request()->route('id');
+		$where = [
+		'cate'=>$cate,
+		];
+		$join = [
+			['cate','article.cate=cate.id']
+		];
+		$article = $common -> joinList(
+			'article',
+			$join,
+			'title,article.des,num,comment,article.create_time,author,cate.catename,article.id,article.keywords',
+			$where,
+			'article.update_time desc');
+		$this -> assign(['cateArticle'=>$article]);
 		return $this -> fetch('public/index');
-		
 	}
 	
 	public function _empty($name)

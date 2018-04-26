@@ -6,7 +6,7 @@
         <dd class="function_c">
             <div>
                 <div style="padding:0.5em 0 0.5em 1em;">
-                    <form method="post" action="__ROOT__/index.php/index/Base/search">
+                    <form method="post" action="__ROOT__/search">
                         <input type="text" name="edtSearch" id="edtSearch" size="12" />
                         <input type="submit" value="提交" name="btnPost" id="btnPost" />
                     </form>
@@ -25,7 +25,7 @@
             <ul>
                 {volist name="cate" id="vo"}
                 <li class="tag-name tag-name-size-0">
-                    <a href="__ROOT__/index.php/index/{$Think.session.controller}/cate/catename/{$vo.id}">
+                    <a href="__ROOT__/cate/{$vo.id}">
                         {$vo.catename}
                     </a>
                 </li>
