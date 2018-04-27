@@ -9,14 +9,14 @@
         <title>
             Qsir的博客__{$nav.4.catename}
         </title>
-        <link rel="stylesheet" rev="stylesheet" href="__ROOT__/public/static/index/style/style.css" type="text/css"
+        <link rel="stylesheet" rev="stylesheet" href="/static/index/style/style.css" type="text/css"
         media="screen" />
-        <link rel="shortcut icon" href="__ROOT__/public/static/index/favicon.ico" />
-        <script src="__ROOT__/public/static/index/style/common.js" type="text/javascript">
+        <link rel="shortcut icon" href="/static/index/favicon.ico" />
+        <script src="/static/index/style/common.js" type="text/javascript">
         </script>
-        <script src="__ROOT__/public/static/index/style/c_html_js_add.js" type="text/javascript">
+        <script src="/static/index/style/c_html_js_add.js" type="text/javascript">
         </script>
-        <script src="__ROOT__/public/static/index/style/custom.js" type="text/javascript">
+        <script src="/static/index/style/custom.js" type="text/javascript">
         </script>
         <link rel="alternate" type="application/rss+xml" href="style/feed.css"
         title="你我网 " />
@@ -40,7 +40,7 @@
                                 {$vo.create_time}
                             </h4>
                             <h2 class="post-title">
-                                <a href="__ROOT__/read/{$vo.id}">
+                                <a href="/read/{$vo.id}">
                                     {$vo.title}
                                 </a>
                             </h2>
@@ -55,14 +55,14 @@
                                     <?php 
                                         $targs = explode(',',$vo['keywords']);
                                         foreach($targs as $k=>$v){
-                                            echo "<a href='__ROOT__/search/targs/$v'>$v</a>&nbsp;&nbsp;";
+                                            echo "<a href='/search/targs/$v'>$v</a>&nbsp;&nbsp;";
                                         } 
                                     ?> 
                                 </span>
                             </h5>
                             <h6 class="post-footer">
                                 发布:{$vo.author} | 分类:{$vo.catename} | 评论:{$vo.comment} | 浏览:{$vo.num}
-                                <a href="__ROOT__/read/{$vo.id}">
+                                <a href="/read/{$vo.id}">
                                     阅读全文 >
                                 </a>
                             </h6>
